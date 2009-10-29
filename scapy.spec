@@ -7,10 +7,11 @@ Summary:	Interactive packet manipulation program.
 Summary(pl.UTF-8):	Interaktywny program do manipulacji pakietami.
 Name:		scapy
 Version:	2.0.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://hg.secdev.org/scapy/archive/%{_hg_rev}.tar.bz2
+# Source0-md5:	7356de9660216844ad6ae60ef8febf23
 URL:		http://www.secdev.org/projects/scapy/
 BuildRequires:	rpm-pythonprov
 BuildRequires:	sphinx-pdg
