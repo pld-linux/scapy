@@ -3,7 +3,7 @@
 # * Vpython (http://www.vpython.org/)
 
 %define _hg_rev 834b9f8a3c23
-Summary:	Interactive packet manipulation program.
+Summary:	Interactive packet manipulation program
 Summary(pl.UTF-8):	Interaktywny program do manipulacji pakietami.
 Name:		scapy
 Version:	2.0.1
@@ -17,13 +17,13 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	sphinx-pdg
 Requires:	python-libdnet
 Requires:	python-pylibpcap
-Suggests:	python-pyx
-Suggests:	texlive
-Suggests:	texlive-fonts-type1-bluesky
 Suggests:	graphviz-python
 Suggests:	python-crypto
-Suggests:	sox
 Suggests:	python-gnuplot
+Suggests:	python-pyx
+Suggests:	sox
+Suggests:	texlive
+Suggests:	texlive-fonts-type1-bluesky
 
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -41,18 +41,18 @@ invalid frames, injecting your own 802.11 frames, combining technics
 channel, ...), etc.
 
 %description -l pl.UTF-8
-Scapy jest interaktywnym programem służacym do manipulacji pakietami
-o olbrzymich możliwościach. Potrafi tworzyć i dekodować pakiety
-sporej ilości protokołów, przesyłać je, przechwytywac je,
-dopasowywać żądania i odpowiedzi i wiele więcej. Z łatwością
-obsługuje typowe zadania takie jak skanowanie, śledzenie trasy,
-sondowanie, testy jednostkowe, ataki czy też wykrywanie (usług w)
-sieci (może zastapić hping, 85% nmapa, arpspoof, arp-sk, arping,
-tcpdump, tethereal, p0f itp.). Radzi sobie rownież z innymi
-specyficznymi zadaniami, którym inne narzedzia nie są w stanie
-podołać - wysyłanie nieprawidlowych ramek, wstrzykiwanie własnych
-ramek 802.11, łączenie technik (przeskakiwanie VLANów+zatruwanie
-ARP cache, dekodowanie VIOP na kanale zabezpieczonym WEP, ...) itp.
+Scapy jest interaktywnym programem służacym do manipulacji pakietami o
+olbrzymich możliwościach. Potrafi tworzyć i dekodować pakiety sporej
+ilości protokołów, przesyłać je, przechwytywac je, dopasowywać żądania
+i odpowiedzi i wiele więcej. Z łatwością obsługuje typowe zadania
+takie jak skanowanie, śledzenie trasy, sondowanie, testy jednostkowe,
+ataki czy też wykrywanie (usług w) sieci (może zastapić hping, 85%
+nmapa, arpspoof, arp-sk, arping, tcpdump, tethereal, p0f itp.). Radzi
+sobie rownież z innymi specyficznymi zadaniami, którym inne narzedzia
+nie są w stanie podołać - wysyłanie nieprawidlowych ramek,
+wstrzykiwanie własnych ramek 802.11, łączenie technik (przeskakiwanie
+VLANów+zatruwanie ARP cache, dekodowanie VIOP na kanale zabezpieczonym
+WEP, ...) itp.
 
 %prep
 %setup -q -n %{name}-%{_hg_rev}
@@ -60,7 +60,7 @@ ARP cache, dekodowanie VIOP na kanale zabezpieczonym WEP, ...) itp.
 %build
 %{__python} setup.py build
 cd doc/scapy
-make html
+%{__make} html
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -99,4 +99,4 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitescriptdir}/%{name}/layers/*.py[co]
 %{py_sitescriptdir}/%{name}/modules/*.py[co]
 %{py_sitescriptdir}/%{name}/tools/*.py[co]
-%{_mandir}/man1/%{name}.1.gz
+%{_mandir}/man1/%{name}.1*
