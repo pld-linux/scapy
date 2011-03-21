@@ -2,16 +2,15 @@
 # - package and add Suggests:
 # * Vpython (http://www.vpython.org/)
 
-%define _hg_rev 834b9f8a3c23
 Summary:	Interactive packet manipulation program
 Summary(pl.UTF-8):	Interaktywny program do manipulacji pakietami.
 Name:		scapy
-Version:	2.0.1
-Release:	2
+Version:	2.2.0
+Release:	1
 License:	GPL
 Group:		Applications/Networking
-Source0:	http://hg.secdev.org/scapy/archive/%{_hg_rev}.tar.bz2
-# Source0-md5:	7356de9660216844ad6ae60ef8febf23
+Source0:	http://www.secdev.org/projects/scapy/files/%{name}-%{version}.tar.gz
+# Source0-md5:	406990bd8da1f4958b354b4b6fc4b3eb
 URL:		http://www.secdev.org/projects/scapy/
 BuildRequires:	rpm-pythonprov
 BuildRequires:	sphinx-pdg
@@ -55,7 +54,7 @@ VLANów+zatruwanie ARP cache, dekodowanie VIOP na kanale zabezpieczonym
 WEP, ...) itp.
 
 %prep
-%setup -q -n %{name}-%{_hg_rev}
+%setup -q
 
 %build
 %{__python} setup.py build
@@ -69,12 +68,7 @@ rm -rf $RPM_BUILD_ROOT
 	--root=$RPM_BUILD_ROOT \
 	--optimize=2
 
-rm -Rf $RPM_BUILD_ROOT/%{py_sitescriptdir}/%{name}/*.py
-rm -Rf $RPM_BUILD_ROOT/%{py_sitescriptdir}/%{name}/arch/*.py
-rm -Rf $RPM_BUILD_ROOT/%{py_sitescriptdir}/%{name}/asn1/*.py
-rm -Rf $RPM_BUILD_ROOT/%{py_sitescriptdir}/%{name}/layers/*.py
-rm -Rf $RPM_BUILD_ROOT/%{py_sitescriptdir}/%{name}/modules/*.py
-rm -Rf $RPM_BUILD_ROOT/%{py_sitescriptdir}/%{name}/tools/*.py
+%py_postclean
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -89,13 +83,17 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitescriptdir}/*.egg-info
 %dir %{py_sitescriptdir}/%{name}
 %dir %{py_sitescriptdir}/%{name}/arch
+%dir %{py_sitescriptdir}/%{name}/arch/windows
 %dir %{py_sitescriptdir}/%{name}/asn1
+%dir %{py_sitescriptdir}/%{name}/crypto
 %dir %{py_sitescriptdir}/%{name}/layers
 %dir %{py_sitescriptdir}/%{name}/modules
 %dir %{py_sitescriptdir}/%{name}/tools
 %{py_sitescriptdir}/%{name}/*.py[co]
 %{py_sitescriptdir}/%{name}/arch/*.py[co]
+%{py_sitescriptdir}/%{name}/arch/windows/*.py[co]
 %{py_sitescriptdir}/%{name}/asn1/*.py[co]
+%{py_sitescriptdir}/%{name}/crypto/*.py[co]
 %{py_sitescriptdir}/%{name}/layers/*.py[co]
 %{py_sitescriptdir}/%{name}/modules/*.py[co]
 %{py_sitescriptdir}/%{name}/tools/*.py[co]
