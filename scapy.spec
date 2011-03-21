@@ -23,7 +23,7 @@ Suggests:	python-pyx
 Suggests:	sox
 Suggests:	texlive
 Suggests:	texlive-fonts-type1-bluesky
-
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
