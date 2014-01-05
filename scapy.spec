@@ -3,10 +3,10 @@
 # * Vpython (http://www.vpython.org/)
 
 Summary:	Interactive packet manipulation program
-Summary(pl.UTF-8):	Interaktywny program do manipulacji pakietami.
+Summary(pl.UTF-8):	Interaktywny program do manipulacji pakietami
 Name:		scapy
 Version:	2.2.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://www.secdev.org/projects/scapy/files/%{name}-%{version}.tar.gz
@@ -16,9 +16,9 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	sphinx-pdg
 Requires:	python-libdnet
 Requires:	python-pylibpcap
-Suggests:	graphviz-python
-Suggests:	python-crypto
-Suggests:	python-gnuplot
+Suggests:	python-Crypto
+Suggests:	python-Gnuplot
+Suggests:	python-pygraphviz
 Suggests:	python-pyx
 Suggests:	sox
 Suggests:	texlive
@@ -36,7 +36,7 @@ can replace hping, 85% of nmap, arpspoof, arp-sk, arping, tcpdump,
 tethereal, p0f, etc.). It also performs very well at a lot of other
 specific tasks that most other tools can't handle, like sending
 invalid frames, injecting your own 802.11 frames, combining technics
-(VLAN hopping+ARP cache poisoning, VOIP decoding on WEP encrypted
+(VLAN hopping+ARP cache poisoning, VoIP decoding on WEP encrypted
 channel, ...), etc.
 
 %description -l pl.UTF-8
@@ -50,7 +50,7 @@ nmapa, arpspoof, arp-sk, arping, tcpdump, tethereal, p0f itp.). Radzi
 sobie rownież z innymi specyficznymi zadaniami, którym inne narzedzia
 nie są w stanie podołać - wysyłanie nieprawidlowych ramek,
 wstrzykiwanie własnych ramek 802.11, łączenie technik (przeskakiwanie
-VLANów+zatruwanie ARP cache, dekodowanie VIOP na kanale zabezpieczonym
+VLANów+zatruwanie ARP cache, dekodowanie VoIP na kanale zabezpieczonym
 WEP, ...) itp.
 
 %prep
@@ -79,7 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 #%doc doc/scapy/_build/html/_static/*
 #%doc doc/scapy/_build/html/_images/*
 #%doc doc/scapy/_build/html/_sources/*.txt
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/*%{name}
 %{py_sitescriptdir}/*.egg-info
 %dir %{py_sitescriptdir}/%{name}
 %dir %{py_sitescriptdir}/%{name}/arch
